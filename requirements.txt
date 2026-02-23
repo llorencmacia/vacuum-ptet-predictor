@@ -4,3 +4,4 @@ jinja2
 matplotlib
 numpy
 python-multipart
+scipy
