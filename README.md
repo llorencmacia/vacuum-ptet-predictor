@@ -18,6 +18,6 @@ http://localhost:8000
 ## Tech Stack
 - FastAPI
 - Uvicorn
-- Matplotlib
+- PlotPy
 - NumPy
 - Dockerized deployment
