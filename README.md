@@ -5,10 +5,10 @@ FastAPI-based ejector performance predictor.
 ## Run with Docker
 
 ```bash
-git clone https://github.com/your-user/ejector-app.git
-cd ejector-app
-docker build -t ejector-app .
-docker run -p 8000:8000 ejector-app
+git clone https://github.com/llorencmacia/vacuum-ptet-predictor.git
+cd vacuum-ptet-predictor
+docker build -t vacuum-ptet-predictor .
+docker run -p 8000:8000 vacuum-ptet-predictor
 ```
 
 Then open:
