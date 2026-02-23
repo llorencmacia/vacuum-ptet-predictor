@@ -1,0 +1,57 @@
+<div class="info-container" style="padding: 10px;">
+  <h2>Technical Documentation</h2>
+
+<p>This application computes the Pressure Total Evacuation Time (PTET) based on the following differential formulation:</p>
+
+<!-- <div class="formula-box"> -->
+$$ \frac{-rT}{V} \, dt = \frac{dp}{\dot{m}_s(p)\, n(p)} $$
+<!-- </div> -->
+
+<h3>Ejector Characteristic Curves</h3>
+
+<p>The secondary mass flow rate is modeled as a piecewise linear function with a defined breakpoint:</p>
+
+<!-- <div class="formula-box"> -->
+$$
+\dot{m}_s (p) =
+\begin{cases}
+a + b \cdot p & \text{if } p \geq p_{bP} \\
+c + d \cdot p & \text{if } p < p_{bP}
+\end{cases}
+$$
+<!-- </div> -->
+<p>The user provides the maximum mass flow rate, the breakpoint pressure, and the slope of the first segment. The remaining coefficients are constructed to ensure continuity. The pressure-dependent polytropic exponent curve is defined as:</p>
+
+<!-- <div class="formula-box"> -->
+$$ n(p) = e + f \cdot p + g \cdot p^2 $$
+<!-- </div> -->
+
+<h3>PTET Calculation</h3>
+
+<p>The total discharge time is obtained by integrating the governing equation across both pressure regions:</p>
+
+<!-- <div class="formula-box"> -->
+$$
+\text{PTET} = \frac{-V}{rT} \left[ I_1 + I_2 \right]
+$$
+<!-- </div> -->
+
+<p>where:</p>
+
+<!-- <div class="formula-box"> -->
+$$
+I_1 = \int_{p_{atm}}^{p_{bP}} \frac{dp}{(a + b p)(e + f p + g p^2)}  ; I_2 = \int_{p_{bP}}^{p_{min}} \frac{dp}{(c + d p)(e + f p + g p^2)}
+$$
+<!-- </div> -->
+
+<!-- <div class="formula-box"> -->
+$$
+
+$$
+<!-- </div> -->
+
+<div class="note-box">
+<strong>Note:</strong> The calculation requires the tank volume (V), specific gas constant (r), operating temperature (T), ejector characteristic parameters, and polytropic coefficients.
+</div>
+
+</div>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="sidebar">
+        {% include "partials/sidebar.html" %}
+    </div>
+
+    <div class="tab-content-wrapper">
+        {% include "partials/kpis.html" %}
+
+        <div class="tabs">
+            <button id="btn-info" class="tab-button active" onclick="showTab('info')">Info</button>
+            <button id="btn-plots" class="tab-button" onclick="showTab('plots')">Plots</button>
+            <button id="btn-data" class="tab-button" onclick="showTab('data')">PTET table</button>
+            <button id="btn-model" class="tab-button" onclick="showTab('model')">Parameters</button>
+        </div>
+
+        <div id="info-content" class="tab-panel">
+            {% include "partials/info.html" %}
+        </div>
+
+        <div id="plots-content" class="tab-panel hidden">
+            <div class="chart-wrapper" id="pieceChart"></div>
+            <div class="chart-wrapper" id="polyChart"></div>
+            <div class="chart-wrapper" id="timeChart"></div>
+            <div class="chart-wrapper" id="errorChart"></div>
+        </div>
+
+        <div id="data-content" class="tab-panel hidden">
+            <div class="panel-header">
+                <div style="text-align: right; width: 100%;">
+                    <button id="btn-download" onclick="exportToCSV()" style="display:none; padding: 8px 15px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">📥 Download CSV</button>
+                </div>
+            </div>
+            <div class="table-container" id="tables-output">
+                <p class="placeholder">Press “Update Plots” to see the data.</p>
+            </div>
+        </div>
+
+        <div id="model-content" class="tab-panel hidden">
+            <div class="panel-header"></div>
+            <div id="model-output">
+                <p class="placeholder">Press “Update Plots” to see model parameters.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/js/main.js"></script> 
+{% endblock %}

@@ -1,0 +1,229 @@
+/* RESET I ESTRUCTURA PRINCIPAL */
+* { box-sizing: border-box; }
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 10px;
+    background-color: #f4f4f9; 
+    height: 100vh; /* Ocupa tota l'altura de la finestra */
+    overflow: hidden; /* Prohibir scroll general */
+    display: flex; 
+    flex-direction: column; 
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 10px;
+}
+h2 { margin: 0; font-size: 1.2rem; color: #333; }
+
+/* LAYOUT FLEXIBLE */
+.container { 
+    display: flex; 
+    gap: 15px; 
+    flex: 1; /* Ocupa tot l'espai restant sota el títol */
+    min-height: 0; /* Vital per al scroll intern */
+}
+
+/* BARRA LATERAL */
+.sidebar { 
+    flex: 0 0 240px; /* Una mica més estreta */
+    background: white; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    overflow-y: auto; /* Scroll només si cal dins la barra */
+    display: flex;
+    flex-direction: column;
+}
+.sidebar h4 { margin-top: 0; margin-bottom: 10px; font-size: 0.95rem; color: #555; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+hr { margin: 10px 0; border: 0; border-top: 1px solid #eee; }
+
+/* ZONA PRINCIPAL */
+.main-wrapper { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    min-width: 0; /* Evita desbordaments en flex */
+}
+
+/* KPIs COMPACTES */
+.kpi-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    height: 70px; /* Alçada fixa per guanyar espai als plots */
+}
+.kpi-card {
+    background: white;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.kpi-card span { font-size: 0.75em; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+.kpi-card h3 { margin: 2px 0 0 0; font-size: 1.3em; color: #007bff; }
+
+/* PESTANYES */
+.tabs { display: flex; gap: 5px; height: 30px; background: white; padding: 4px; border-radius: 0 6px 0 0; z-index: 2; }
+.tab-button {
+    padding: 5px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+}
+.tab-button.active { background: #fff; color: #007bff; border-top: 2px solid #007bff; }
+
+/* CONTINGUT GRÀFICS (GRID 2x2) */
+.main-content { 
+    flex: 1; /* Ocupa tot l'espai restant */
+    background: white;
+    border-radius: 0 6px 6px 6px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; /* Divideix l'espai disponible exactament en 2 */
+    gap: 10px;
+    min-height: 0; /* Permet que el grid es faci petit si la finestra ho és */
+}
+
+/* Ajust per a les gràfiques individuals */
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Forçar que el Plotly SVG ocupi tot el div */
+.js-plotly-plot, .plot-container { width: 100% !important; height: 100% !important; }
+
+/* FORMULARIS */
+.input-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-size: 0.85rem; }
+input { width: 80px; padding: 2px 5px; border: 1px solid #ccc; border-radius: 3px; text-align: right; }
+button[type="submit"] { 
+    width: 100%; margin-top: auto; padding: 10px; 
+    background-color: #007bff; color: white; border: none; border-radius: 4px; 
+    cursor: pointer; font-weight: bold; transition: background 0.2s;
+}
+button[type="submit"]:hover { background-color: #0056b3; }
+
+/* TAULES */
+.table-view { flex: 1; background: white; padding: 0; border-radius: 0 6px 6px 6px; overflow: hidden; display: flex; flex-direction: column; }
+.table-container { flex: 1; overflow-y: auto; padding: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+th, td { border: 1px solid #ddd; padding: 6px; text-align: center; }
+th { background: #f8f9fa; position: sticky; top: 0; z-index: 1; }
+
+/* MODEL VIEW (Parameters tab) */
+.model-view {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 0 6px 6px 6px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.model-view #model-output {
+    flex: 1;      /* ocupa tot l'espai disponible */
+    min-height: 0;
+    padding: 0;   /* deixa que el padding del model-view faci l'efecte */
+    background: transparent; /* o eliminar línia */
+    box-shadow: none;
+}
+
+.hidden { display: none !important; }
+
+/* Estil per a la pestanya d'informació */
+.formula-box {
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    margin: 15px 0;
+    overflow-x: auto; /* Per si la fórmula és molt llarga en mòbil */
+}
+
+.note-box {
+    background-color: #e7f3ff;
+    border-left: 5px solid #2196F3;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+#intro-content h3 {
+    margin-top: 25px;
+    color: #444;
+    font-size: 1.1rem;
+}
+
+/* El contenidor que envolta totes les pestanyes */
+.tab-content-wrapper {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important per permetre scroll intern */
+    background: white;
+    border-radius: 0 6px 6px 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #ddd; /* Per evitar que es barregi amb el fons */
+}
+
+/* El panell individual de cada pestanya */
+.tab-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Cada panell té el seu propi scroll */
+    padding: 10px; /* standardize padding so tab placeholders align */
+}
+
+/* Header area inside each tab for controls (download, filters, etc.) */
+.panel-header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
+    border-bottom: 1px solid transparent; /* keeps spacing consistent */
+}
+
+/* Placeholder text used in empty tab panels - force identical spacing */
+.tab-panel .placeholder {
+    color: #666;
+    margin: 0;            /* reset browser defaults */
+    padding-top: 12px;    /* same offset below the panel-header */
+    line-height: 1.4;
+}
+
+/* Si vols que la pestanya de Plots segueixi sent un grid, pots fer una excepció */
+#plots-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px; /* Una mica menys de padding per als gràfics */
+}
+
+/* Quan estigui ocult, ha de prevaldre el display: none */
+.tab-panel.hidden {
+    display: none !important;
+}

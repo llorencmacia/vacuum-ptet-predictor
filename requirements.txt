@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+jinja2
+matplotlib
+numpy
+python-multipart

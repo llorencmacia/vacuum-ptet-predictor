@@ -1,0 +1,30 @@
+<form id="params-form">
+    <h4>Operating Conditions</h4>
+     <div class="input-group"><label>Tank Volume, V [m³]</label><input type="number" step="any" name="V" value="0.5"></div>
+    <div class="input-group"><label>Gas constant, r:</label><input type="number" step="any" name="r" value="287"></div>
+    <div class="input-group"><label>Temperature, T [K]:</label><input type="number" step="any" name="T" value="298"></div>
+    <div class="input-group"><label>Min pressure [bar]:</label><input type="number" step="any" name="Min_pressure" value="0.2"></div>
+    <hr>
+    <h4>Reference Ejector</h4>
+    <!-- <div class="input-group"><label>a:</label> <input type="number" step="any" name="a_ref" value="-3.88e-3"></div> -->
+    <div class="input-group"><label>Slope, b:</label> <input type="number" step="any" name="b_ref" value="1.0009e-7"></div>
+    <!-- <div class="input-group"><label>c:</label> <input type="number" step="any" name="c_ref" value="-1.58e-3"></div> -->
+    <!-- <div class="input-group"><label>d:</label> <input type="number" step="any" name="d_ref" value="1.02e-7"></div> -->
+    <div class="input-group"><label>e:</label> <input type="number" step="any" name="e_ref" value="0.69"></div>
+    <div class="input-group"><label>f:</label> <input type="number" step="any" name="f_ref" value="7.21e-6"></div>
+    <div class="input-group"><label>g:</label> <input type="number" step="any" name="g_ref" value="0"></div>
+    <div class="input-group"><label>BreakPoint p [bar]:</label> <input type="number" step="any" name="P_breakPoint_r" value="0.234"></div>
+    <div class="input-group"><label>Max $\dot{m}_s $:</label> <input type="number" step="any" name="dotm_max_ref" value="0.0086"></div>
+    <hr>
+    <h4>New Ejector</h4>
+    <!-- <div class="input-group"><label>a:</label> <input type="number" step="any" name="a_new" value="-2.79e-3"></div> -->
+    <div class="input-group"><label>Slope, b:</label> <input type="number" step="any" name="b_new" value="0.9e-7"></div>
+    <!-- <div class="input-group"><label>c:</label> <input type="number" step="any" name="c_new" value="-1.76e-3"></div> -->
+    <!-- <div class="input-group"><label>d:</label> <input type="number" step="any" name="d_new" value="1.04e-7"></div> -->
+    <div class="input-group"><label>e:</label> <input type="number" step="any" name="e_new" value="1.08"></div>
+    <div class="input-group"><label>f:</label> <input type="number" step="any" name="f_new" value="-5.21e-6"></div>
+    <div class="input-group"><label>g:</label> <input type="number" step="any" name="g_new" value="8.17e-11"></div>
+    <div class="input-group"><label>BreakPoint p [bar]:</label> <input type="number" step="any" name="P_breakPoint_n" value="0.241"></div>
+    <div class="input-group"><label>Max $\dot{m}_s $:</label> <input type="number" step="any" name="dotm_max_new" value="0.0086"></div>
+    <button type="submit">Update Plots</button>
+</form>

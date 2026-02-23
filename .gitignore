@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Entorns virtuals
+venv/
+env/
+.env
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+.flake8
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker
+*.pid
+docker-compose.override.yml
+Dockerfile.dev
+.dockerignore  # Si el crees manualment, però normalment el .gitignore ja fa la feina
+
+# Base de dades local
+*.db
+*.sqlite3
+*.sqlite
+*.db3
+
+# Secrets i config
+.env.*
+!.env.example  # Si vols tenir un example del .env
+*.key
+*.pem
+*.crt
+config_local.py
+secrets/
+credentials.json
+service-account-key.json
+
+# Logs
+*.log
+logs/
+*.pid
+
+# Arxius de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Cache de pre-commit
+.pre-commit-config.yaml.bak
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Jupyter (per si en fas servir)
+.ipynb_checkpoints/
+*.ipynb
+
+# FastAPI / Uvicorn (si engegues manualment)
+uvicorn.pid
+
+# Backup files
+*.bak
+*.tmp
+temp/
