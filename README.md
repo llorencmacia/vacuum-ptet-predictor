@@ -1,4 +1,4 @@
-# Ejector App
+# Vacuum Ejector App for calculating the Predicted Total Evacuation Time (PTET)
 
 FastAPI-based ejector performance predictor.
 
